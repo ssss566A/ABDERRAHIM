@@ -1,0 +1,50 @@
+const stages = [
+  { names: ["بلاع", "إسلام", "بوداوي"], correct: "إسلام" },
+  { names: ["آدم", "عبد القادر", "وليد"], correct: "آدم" },
+  { names: ["هاتاك", "علاء", "حمزة"], correct: "هاتاك" }
+];
+
+let currentStage = 0;
+const optionsContainer = document.getElementById("options");
+const resultText = document.getElementById("result");
+const nextButton = document.getElementById("nextButton");
+const levelTitle = document.getElementById("levelTitle");
+
+function renderOptions() {
+  optionsContainer.innerHTML = "";
+  levelTitle.innerText = `المرحلة ${currentStage + 1}`;
+
+  stages[currentStage].names.forEach((name) => {
+    const button = document.createElement("button");
+    button.innerText = name;
+    button.className = "option";
+    button.onclick = () => checkAnswer(name);
+    optionsContainer.appendChild(button);
+  });
+}
+
+function checkAnswer(selectedName) {
+  if (selectedName === stages[currentStage].correct) {
+    resultText.innerText = "إجابة صحيحة!";
+    nextButton.style.display = "block"; // إظهار زر "التالي"
+  } else {
+    resultText.innerText = "إجابة خاطئة! حاول مجددًا.";
+    nextButton.style.display = "none"; // إخفاء زر "التالي"
+  }
+}
+
+nextButton.onclick = () => {
+  if (currentStage < stages.length - 1) {
+    currentStage++;
+    nextButton.style.display = "none"; // إخفاء زر "التالي"
+    resultText.innerText = ""; // إعادة تعيين النص
+    renderOptions(); // إعادة تحميل الخيارات
+  } else {
+    levelTitle.innerText = "تهانينا! لقد فزت!";
+    optionsContainer.innerHTML = "";
+    nextButton.style.display = "none"; // إخفاء زر "التالي"
+  }
+};
+
+// تحميل الخيارات عند بدء اللعبة
+renderOptions();

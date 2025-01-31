@@ -1,0 +1,54 @@
+body {
+  background-image: url("https://example.com/school-background.jpg"); /* استبدل هذا بالرابط الصحيح لصورة الخلفية */
+  background-size: cover;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  margin: 20px;
+}
+
+h1 {
+  font-size: 24px;
+  color: #333;
+}
+
+h2 {
+  color: #4caf50; /* لون أخضر */
+}
+
+.option {
+  margin: 10px;
+  padding: 10px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.option:hover {
+  background-color: #45a049;
+}
+
+#result {
+  font-size: 20px;
+  margin-top: 20px;
+  color: #d9534f; /* لون احمر */
+}
+
+.footer {
+  text-align: center;
+  color: #333;
+  margin-top: 20px; /* تبعيد عن اللعبة */
+  position: fixed;
+  bottom: 20px; /* وضعه في أسفل الصفحة */
+  left: 50%;
+  transform: translateX(-50%); /* توسيط النص */
+}
